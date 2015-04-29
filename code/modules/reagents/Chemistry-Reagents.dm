@@ -1912,6 +1912,57 @@ datum
 				..()
 				return
 
+		toxin/neuralsolvent
+			name = "Neural Solvent"
+			id = "neuralsolvent"
+			description = "An extrememly dangerous chemical that dissolves the nervous system."
+			reagent_state = LIQUID
+			color = "#00FFCC"
+			toxpwr = 0
+			custom_metabolism = 0.05
+			overdose = 6
+
+			on_mob_life(var/mob/living/carbon/M as mob)
+				if(!M) M = holder.my_atom
+				if(!data) data = 1
+				switch(data)
+					if(1)
+						M.setBrainLoss(25)
+						M.updatehealth()
+
+						if(prob(50)){
+							M.emote("stare")
+						} else {
+							M << "\red Your head hurts slightly"
+						}
+					if(5)
+						M.setBrainLoss(50)
+						M.updatehealth()
+						if(prob(75)){
+							M << "\red Your head really hurts!"
+						} else {
+							M.emote("drool")
+						}
+					if(15)
+						M.setBrainLoss(75)
+						M.updatehealth()
+						M << "\red You can no longer move."
+						M << "\blue Your head no longer hurts."
+						for(var/mob/O in viewers(M, null))
+							O.show_message("[M] has collapsed suddenly.", 1)
+						M.Paralyse(300)
+					if(30)
+						M.setBrainLoss(99)
+						M.updatehealth()
+						M << "\red An feeling of nothingness overwhelms your thougths."
+					if(120)
+						M << "\red You begin to feel panic as you stop breathing."
+						M.take_organ_damage(195)
+						M.losebreath = 10
+				data++
+				..()
+				return
+
 		toxin/chloralhydrate
 			name = "Chloral Hydrate"
 			id = "chloralhydrate"

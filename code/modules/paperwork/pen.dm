@@ -3,6 +3,7 @@
  *		Pens
  *		Sleepy Pens
  *		Parapens
+ *      Neural Solvent Pens
  */
 
 
@@ -111,6 +112,36 @@
 	R.add_reagent("cryptobiolin", 15)
 	..()
 	return
+
+/*
+ *Neural Solvent Pen
+ */
+ /obj/item/weapon/pen/neural
+ 	flags = OPENCONTAINER
+ 	slot_flags = SLOT_BELT
+ 	origin_tech = "materials=2;syndicate=5"
+
+/obj/item/weapon/pen/neural/attack(mob/living/M as mob, mob/user as mob)
+	if(!(istype(M,/mob)))
+		return
+
+	..()
+
+
+	if(M.can_inject(user,1))
+		if(reagents.total_volume)
+			if(M.reagents) reagents.trans_to(M, 50)
+	return
+
+
+/obj/item/weapon/pen/neural/New()
+	var/datum/reagents/R = new/datum/reagents(5)
+	reagents = R
+	R.my_atom = src
+	R.add_reagent("neuralsolvent", 5)
+	..()
+	return
+
 
 /*
  * Chameleon pen

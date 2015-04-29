@@ -128,6 +128,7 @@
 Whitespace:Seperator;
 Stealthy and Inconspicuous Weapons;
 /obj/item/weapon/pen/paralysis:3:Paralysis Pen;
+/obj/item/weapon/pen/neural:5:Neural Solvent Pen;
 /obj/item/weapon/soap/syndie:1:Syndicate Soap;
 /obj/item/weapon/cartridge/syndicate:3:Detomatix PDA Cartridge;
 Whitespace:Seperator;

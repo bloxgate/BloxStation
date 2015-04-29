@@ -71,6 +71,13 @@ datum
 			required_reagents = list("chloralhydrate" = 1, "sugar" = 4)
 			result_amount = 5
 
+		neuralsolvent
+			name = "Neural Solvent"
+			id = "neuralsolvent"
+			result = "neuralsolvent"
+			required_reagents = list("alkysine" = 10, "lexorin" = 10)
+			result_amount = 5
+
 		sterilizine
 			name = "Sterilizine"
 			id = "sterilizine"
