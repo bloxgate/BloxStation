@@ -10,7 +10,7 @@
 
 /obj/machinery/power/am_engine/engine
 	name = "Antimatter Engine"
-	icon_state = "am_engine"
+	icon_state = "core_off"
 	var/engine_id = 0
 	var/H_fuel = 0
 	var/antiH_fuel = 0
@@ -90,6 +90,7 @@
 		return
 
 	operating = 1
+	icon_state = "core_on"
 	var/energy = 0
 
 	if(antiH_fuel == H_fuel)
