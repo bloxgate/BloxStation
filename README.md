@@ -1,7 +1,7 @@
 # BloxStation
 A fork of Baystation 12 for Bloxgaming
 [Website](http://bloxgaming.com)
-
+[![Build Status](https://travis-ci.org/BloxGaming/BloxStation.svg?branch=master)](https://travis-ci.org/BloxGaming/BloxStation)
 ---
 
 ### LICENSE
