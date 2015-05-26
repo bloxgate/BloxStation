@@ -63,6 +63,6 @@
 	icon = null
 	icon_state = null
 	mode = 1
-	chargecost = 2000
+	charge_cost = 2000
 	fire_delay = 5
 	cell_type = /obj/item/weapon/cell/high
