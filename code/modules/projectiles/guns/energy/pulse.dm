@@ -55,3 +55,14 @@
 	icon_state = "m1911-p"
 	cell_type = /obj/item/weapon/cell/infinite
 	fire_delay = 10
+
+
+/obj/item/weapon/gun/energy/pulse_rifle/phased_pistol
+	name = "Phased-Laser Pistol"
+	desc = "Experimental, hyper-lethal energy pistol issued to military units in dangerous areas."
+	icon = null
+	icon_state = null
+	mode = 1
+	chargecost = 2000
+	fire_delay = 5
+	cell_type = /obj/item/weapon/cell/high
