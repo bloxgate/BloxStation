@@ -60,8 +60,7 @@
 /obj/item/weapon/gun/energy/pulse_rifle/phased_pistol
 	name = "Phased-Laser Pistol"
 	desc = "Experimental, hyper-lethal energy pistol issued to military units in dangerous areas."
-	icon = null
-	icon_state = null
+	icon_state = "phasedpistol"
 	mode = 1
 	charge_cost = 2000
 	fire_delay = 5
