@@ -180,11 +180,11 @@ var/list/beam_master = list()
 	name = "Phased-pulse beam"
 	nodamage = 1
 
-/obj/item/projectile/beam/phased/on_hit(var/atmo/target, var/blocked = 0)
+/obj/item/projectile/beam/phased/on_hit(var/atom/target, var/blocked = 0)
 	if(istype(target, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = target
 		if(prob(75))
-			/var/datum/organ/internal/H = M.internal_organs_by_name["heart"]
+			var/datum/organ/internal/H = M.internal_organs_by_name["heart"]
 			H.status |= ORGAN_DEAD
 		else
 			M.adjustFireLoss(75)
