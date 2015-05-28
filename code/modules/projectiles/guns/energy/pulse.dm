@@ -65,3 +65,4 @@
 	charge_cost = 2000
 	fire_delay = 5
 	cell_type = /obj/item/weapon/cell/high
+	projectile_type = /obj/item/projectile/beam/phased

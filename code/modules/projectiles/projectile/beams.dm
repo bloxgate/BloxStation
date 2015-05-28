@@ -185,8 +185,7 @@ var/list/beam_master = list()
 		var/mob/living/carbon/human/M = target
 		if(prob(75))
 			var/datum/organ/internal/H = M.internal_organs_by_name["heart"]
-			if (!(H.status & ORGAN_DEAD))
-				H.status |= ORGAN_DEAD
+			H.damage += H.min_broken_damage * 2
 			M.update_body(1)
 		else
 			M.adjustFireLoss(75)
