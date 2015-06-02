@@ -227,14 +227,14 @@
 	desc = "The language spoken by the Boronians. Their metallic vocal cords make this language sound like deep rumbling to those who don't understand it. The pitch of the various syllables can change the meaning of entire sentences."
 	speech_verb = "rumbles"
 	ask_verb = "shrilly rumbles"
-	excalim_verb = "rapidly rumbles"
+	exclaim_verb = "rapidly rumbles"
 	colour = "b"
 	key = "r"
 	flags = WHITELISTED
 	syllables = list("rrr","RRR","b","B","er","ER","eR","Re","Rrr","rRr","rrR","RRr","RrR","rRR")
 
 /datum/language/boronian/get_random_name()
-	var/new_nname ="[pick(list("Boron", "Aluminum", "Gallium", "Indium", "Thallium", "Rikenium"))]"
+	var/new_name ="[pick(list("Boron", "Aluminum", "Gallium", "Indium", "Thallium", "Rikenium"))]"
 	new_name += "[pick(list(" Carbonate", " Silicate", "-Germanium", "-Tin", "-Lead", "-Flerovium"))]"
 	return new_name
 
