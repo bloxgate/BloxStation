@@ -42,6 +42,25 @@
 	var/minimal_player_age = 0
 
 /datum/job/proc/equip(var/mob/living/carbon/human/H)
+	if(H.species && H.species.name == "Boronian")
+		H.u_equip(H.wear_suit)
+		H.u_equip(H.head)
+		if(H.mind.assigned_role != "Clown")
+			H.u_equip(H.wear_mask)
+
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
+		var/suit = /obj/item/clothing/suit/space/void
+		var/helm = /obj/item/clothing/head/helmet/space/void
+		var/tank_slot = slot_s_store
+		var/tank_slot_name = "suit storage"
+		H.equip_to_slot_or_del(new suit(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new helm(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/weapon/tank/diborane(H), tank_slot)
+		H << "\blue Diborane tank activated from your [tank_slot_name]. Your species cannot breathe oxygen, you will die if you do not breath diborane."
+		H.internal = H.get_equipped_item(tank_slot)
+		if(H.internals)
+			H.internals.icon_state = "internal1"
+
 	return 1
 
 /datum/job/proc/get_access()
