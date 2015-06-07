@@ -35,6 +35,7 @@
 		return 1
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
+		..()
 
 /datum/job/doctor
 	title = "Medical Doctor"
@@ -96,6 +97,7 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
+		..()
 		return 1
 
 
@@ -128,6 +130,7 @@
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(H), slot_wear_suit)
+		..()
 		return 1
 
 
@@ -159,6 +162,7 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/genetics(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
+		..()
 		return 1
 
 /datum/job/psychiatrist
@@ -196,6 +200,7 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
+		..()
 
 
 /datum/job/Paramedic
@@ -236,4 +241,5 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(H), slot_r_hand)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(H.back), slot_in_backpack)
+		..()
 		return 1

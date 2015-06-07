@@ -164,3 +164,23 @@
 	if(..(user, 0) && air_contents.gas["nitrogen"] < 10)
 		user << text("\red <B>The meter on the [src.name] indicates you are almost out of nitrogen!</B>")
 		//playsound(user, 'sound/effects/alert.ogg', 50, 1)
+
+/*
+ * Diborane
+ */
+/obj/item/weapon/tank/diborane
+	name = "diborane tank"
+	desc = "A tank of diborane (Diboron Hexahydride)"
+	icon_state = "diborane"
+	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
+
+/obj/item/weapon/tank/diborane/New()
+	..()
+
+	src.air_contents.adjust_gas("diborane", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	return
+
+/obj/item/weapon/tank/diborane/examine(mob/user)
+	if(..(user, 0) && air_contents.gas["diborane"] < 10)
+		user << text("\red <B>The meter on the [src.name] indicates you are almost out of diborane!</B>")
+		user << sound('sound/effects/alert.ogg')

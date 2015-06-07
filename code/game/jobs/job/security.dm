@@ -40,6 +40,9 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
 		H.implant_loyalty(H)
+
+		..()
+
 		return 1
 
 
@@ -77,6 +80,9 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
+
+		..()
+
 		return 1
 
 
@@ -121,6 +127,7 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_suit(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/det_hat(H), slot_head)
+		..()
 		return 1
 
 
@@ -155,4 +162,5 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
+		..()
 		return 1

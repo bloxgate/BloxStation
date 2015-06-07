@@ -251,3 +251,5 @@
 
 	return 0
 
+/datum/species/proc/equip(var/mob/living/carbon/human/H)
+	return

@@ -40,6 +40,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 		H.implant_loyalty(src)
 
+		..()
+
 		return 1
 
 	get_access()
@@ -88,4 +90,5 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H), slot_r_hand)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H.back), slot_in_backpack)
+		..()
 		return 1
