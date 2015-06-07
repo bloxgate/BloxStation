@@ -7,3 +7,5 @@
 *.backup
 data/
 icons/*/Thumbs.db
+html/*/Thumbs.db
+html/Thumbs.db
