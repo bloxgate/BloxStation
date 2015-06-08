@@ -22,7 +22,7 @@
 
 /obj/item/weapon/fuel/attackby(obj/item/weapon/fuel/F, mob/user)
 	..()
-	if(istype(src, /obj/item/weapon/fuel/antiH))
+	if(istype(F, /obj/item/weapon/fuel/antiH))
 		if(istype(F, /obj/item/weapon/fuel/antiH))
 			src.fuel += F.fuel
 			F.fuel = 0
@@ -31,7 +31,7 @@
 			src.fuel += F.fuel
 			del(F)
 			src:annihilation(src.fuel)
-	if(istype(src, /obj/item/weapon/fuel/H))
+	if(istype(F, /obj/item/weapon/fuel/H))
 		if(istype(F, /obj/item/weapon/fuel/H))
 			src.fuel += F.fuel
 			F.fuel = 0
