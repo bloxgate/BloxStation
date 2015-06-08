@@ -5,4 +5,6 @@ FOR /L %%i IN (1,1,%z_levels%) DO (
   copy exodus-%%i.dmm exodus-%%i.dmm.backup
 )
 
+copy blox-1.dmm blox-1.dmm.backup
+
 pause
