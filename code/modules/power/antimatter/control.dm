@@ -28,20 +28,25 @@
 
 	var/stored_power = 0//Power to deploy per tick
 
+	var/obj/item/device/radio/radio //For the stability monitor.
+
 
 /obj/machinery/power/am_control_unit/New()
 	..()
 	linked_shielding = list()
 	linked_cores = list()
+	radio = new (src)
 
 
 /obj/machinery/power/am_control_unit/Del()//Perhaps damage and run stability checks rather than just del on the others
 	for(var/obj/machinery/am_shielding/AMS in linked_shielding)
 		del(AMS)
+	del(radio)
 	..()
 
 
 /obj/machinery/power/am_control_unit/process()
+
 	if(exploding)
 		explosion(get_turf(src),8,12,18,12)
 		if(src) del(src)
@@ -74,6 +79,7 @@
 	if(core_power <= 0) return 0//Something is wrong
 	var/core_damage = 0
 	var/fuel = fueljar.usefuel(fuel_injection)
+	var/total_stability = 0
 
 	stored_power = (fuel/core_power)*fuel*200000
 	//Now check if the cores could deal with it safely, this is done after so you can overload for more power if needed, still a bad idea
@@ -84,8 +90,11 @@
 		if(core_damage == 0) return
 		for(var/obj/machinery/am_shielding/AMS in linked_cores)
 			AMS.stability -= core_damage
+			total_stability += AMS.stability
 			AMS.check_stability(1)
 		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1)
+	if(total_stability < 75)
+		radio.autosay("WARNING: Anti-Matter Core Integrity at: [total_stability]%", "Anti-Matter Monitor")
 	return
 
 
@@ -170,7 +179,7 @@
 		if(fueljar)
 			user << "\red There is already a [fueljar] inside!"
 			return
-		fueljar = W
+		fueljar = new/obj/item/weapon/am_containment(src)
 		W.loc = src
 		if(user.client)
 			user.client.screen -= W
@@ -179,6 +188,7 @@
 		user.visible_message("[user.name] loads an [W.name] into the [src.name].", \
 				"You load an [W.name].", \
 				"You hear a thunk.")
+		W.Del()
 		return
 
 	if(W.force >= 20)
