@@ -1506,5 +1506,28 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/device/floor_painter,
 					/obj/item/device/floor_painter)
 
+/datum/supply_packs/am_shields
+	name = "Packaged Antimatter Reactor Section"
+	cost = 20
+	containername = "antimatter reactor section crate"
+	containertype = /obj/structure/closet/crate
+	group = "Engineering"
+	contains = list(/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container,
+					/obj/item/device/am_shielding_container)
 
-
+/datum/supply_packs/am_containment_jar
+	name = "Antimatter Containment Jar"
+	cost = 50
+	containername = "antimatter containment jar crate"
+	containertype = /obj/structure/closet/crate/secure
+	access = access_engine
+	contains = list(/obj/item/weapon/am_containment,
+					/obj/item/weapon/am_containment)
+	group = "Engineering"

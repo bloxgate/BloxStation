@@ -93,7 +93,7 @@
 			total_stability += AMS.stability
 			AMS.check_stability(1)
 		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1)
-	if(total_stability < 75)
+	if(total_stability < 75 && total_stability != 0)
 		radio.autosay("WARNING: Anti-Matter Core Integrity at: [total_stability]%", "Anti-Matter Monitor")
 	return
 
