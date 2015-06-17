@@ -380,10 +380,10 @@
 						var/datum/organ/external/O = pick(organs)
 						if(istype(O)) O.add_autopsy_data("Gamma Radiation Poisoning", 5 * gammarad/100)
 			if(1800 to 3000)
+				adjustCloneLoss(10 * gammarad/1800)
 				if(!(paralysis != 0))
 					src << "<span class='warning'>You pass out suddenly.</span>"
 					SetParalysis(30)
-					adjustCloneLoss(10 * gammarad/1800)
 					if(organs.len)
 						var/datum/organ/external/O = pick(organs)
 						if(istype(O)) O.add_autopsy_data("Acute Gamma Radiation Poisoning", 10 * gammarad/100)
