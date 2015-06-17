@@ -23,6 +23,8 @@
 
 #define RADIATION_SPEED_COEFFICIENT 0.1
 
+/var/radcounter = 0
+
 /mob/living/carbon/human
 	var/oxygen_alert = 0
 	var/phoron_alert = 0
@@ -327,7 +329,7 @@
 					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)*/
 
 	proc/blox_handle_rad()
-		if(lifetick%10==0)
+		if(radcounter%10==0)
 			switch(alpharad)
 				if(1 to 50)
 					if(prob(5))
@@ -376,10 +378,10 @@
 				if(100 to 1799)
 					if(prob(10))
 						src << "<span class='warning'>Your skin burns slightly, you feel horribly sick.</span>"
-						adjustCloneLoss(5 * gammarad/100)
-						if(organs.len)
-							var/datum/organ/external/O = pick(organs)
-							if(istype(O)) O.add_autopsy_data("Gamma Radiation Poisoning", 5 * gammarad/100)
+					adjustCloneLoss(5 * gammarad/100)
+					if(organs.len)
+						var/datum/organ/external/O = pick(organs)
+						if(istype(O)) O.add_autopsy_data("Gamma Radiation Poisoning", 5 * gammarad/100)
 				if(1800 to 3000)
 					adjustCloneLoss(10 * gammarad/1800)
 					if(!(paralysis != 0))
@@ -409,6 +411,9 @@
 				gammarad -= 3 * RADIATION_SPEED_COEFFICIENT
 			if(deltarad > 0)
 				deltarad -= 4 * RADIATION_SPEED_COEFFICIENT
+
+		radcounter++
+
 			//more types to come soon
 
 	proc/breathe()
