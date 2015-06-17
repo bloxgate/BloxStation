@@ -401,10 +401,14 @@
 			if(radiation > 0)
 				gammarad += radiation
 				radiation = 0
-			alpharad -= 1 * RADIATION_SPEED_COEFFICIENT
-			betarad -= 2 * RADIATION_SPEED_COEFFICIENT
-			gammarad -= 3 * RADIATION_SPEED_COEFFICIENT
-			deltarad -= 4 * RADIATION_SPEED_COEFFICIENT
+			if(alpharad > 0)
+				alpharad -= 1 * RADIATION_SPEED_COEFFICIENT
+			if(betarad > 0)
+				betarad -= 2 * RADIATION_SPEED_COEFFICIENT
+			if(gammarad > 0)
+				gammarad -= 3 * RADIATION_SPEED_COEFFICIENT
+			if(deltarad > 0)
+				deltarad -= 4 * RADIATION_SPEED_COEFFICIENT
 			//more types to come soon
 
 	proc/breathe()
