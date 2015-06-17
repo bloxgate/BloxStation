@@ -155,6 +155,13 @@
 
 	var/datum/dna/dna = null//Carbon
 	var/radiation = 0.0//Carbon
+	//improved radiation -Bloxgate
+	var/alpharad = 0.0
+	var/betarad = 0.0
+	var/gammarad = 0.0
+	var/deltarad = 0.0
+	var/xray = 0.0
+	var/nray = 0.0
 
 	var/list/mutations = list() //Carbon -- Doohl
 	//see: setup.dm for list of mutations

@@ -256,6 +256,7 @@
 
 	proc/handle_mutations_and_radiation()
 
+		blox_handle_rad()
 		if(species.flags & IS_SYNTHETIC) //Robots don't suffer from mutations or radloss.
 			return
 
@@ -272,7 +273,7 @@
 				speech_problem_flag = 1
 				gene.OnMobLife(src)
 
-		radiation = Clamp(radiation,0,100)
+		/*radiation = Clamp(radiation,0,100)
 
 		if (radiation)
 			var/datum/organ/internal/diona/nutrients/rad_organ = locate() in internal_organs
@@ -323,7 +324,48 @@
 				updatehealth()
 				if(organs.len)
 					var/datum/organ/external/O = pick(organs)
-					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)*/
+
+	proc/blox_handle_rad()
+		switch(alpharad)
+			if(1 to 50)
+				if(prob(5))
+					src << "<span class='warning'>Your skin tingles!</span>"
+				adjustFireLoss(0.1)
+			if(51 to 100)
+				if(prob(5))
+					src << "<span class='warning'>Red patches appear on your skin!</span>"
+				adjustFireLoss(1)
+			if(101 to INFINITY)
+				if(prob(5))
+					src << "<span class='warning'>Small burns appear on your skin!</span>"
+				adjustFireLoss(2 * (alpharad/101))
+				if(organs.len)
+					var/datum/organ/external/O = pick(organs)
+					if(istype(O)) O.add_autopsy_data("Severe Alpha Radiation Exposure", 2)
+		switch(betarad)
+			if(1 to 50)
+				if(prob(5))
+					src << "<span class='warning'>Your skin tingles and itches!</span>"
+				adjustFireLoss(0.5)
+			if(51 to 100)
+				if(prob(5))
+					src << "<span class='warning'>Your skin feels like its being warmed from the inside!</span>"
+				adjustFireLoss(2)
+			if(101 to 2999)
+				if(prob(5))
+					src << "<span class='warning'>Strange burns painfully appear on your skin!</span>"
+				adjustFireLoss(3)
+				if(organs.len)
+					var/datum/organ/external/O = pick(organs)
+					if(istype(O)) O.add_autopsy_data("Positron or Beta(+) Radiation Exposure", 3)
+			if(3000 to INFINTIY)
+				if(prob(75))
+					src << "<span class='warning'>You feel your insides swelling and rapidly heating!</span">
+				else
+					src.gib()
+
+
 
 	proc/breathe()
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
