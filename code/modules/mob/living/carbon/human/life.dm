@@ -350,11 +350,13 @@
 				if(1 to 50)
 					if(prob(5))
 						src << "<span class='warning'>Your skin tingles and itches!</span>"
-					adjustFireLoss(0.5)
+					if(prob(50))
+						adjustFireLoss(0.5)
 				if(51 to 100)
 					if(prob(5))
 						src << "<span class='warning'>Your skin feels like its being warmed from the inside!</span>"
-					adjustFireLoss(2)
+					if(prob(75))
+						adjustFireLoss(2)
 				if(101 to 2999)
 					if(prob(5))
 						src << "<span class='warning'>Strange burns painfully appear on your skin!</span>"
@@ -374,6 +376,7 @@
 				if(50 to 100)
 					if(prob(10))
 						src << "<span class='warning'>You feel naseous.</span>"
+					if(prob(75))
 						adjustToxLoss(1)
 				if(100 to 1799)
 					if(prob(10))
