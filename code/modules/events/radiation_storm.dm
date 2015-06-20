@@ -6,9 +6,11 @@
 	announceWhen			= 1
 	endWhen					= revokeAccess
 	var/postStartTicks 		= 0
+	var/radtype                = ""
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce("High levels of radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	radtype = pick("alpha","beta","gamma","delta")
+	command_announcement.Announce("High levels of [radtype] radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
 
 /datum/event/radiation_storm/start()
 	make_maint_all_access()
@@ -29,20 +31,27 @@
 		command_announcement.Announce("The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all access again shortly.", "Anomaly Alert")
 
 /datum/event/radiation_storm/proc/radiate()
+	//world << "radiation proc called for rad storm"
 	for(var/mob/living/carbon/C in living_mob_list)
 		var/area/A = get_area(C)
 		if(!A)
+			world << "area exists"
 			continue
-		if(!(A.z in config.station_levels))
+		if((A.z in config.station_levels))
+			world << "area on station"
 			continue
 		if(A.rad_shielded)
+			world << "area not shielded"
 			continue
+		//world << "mob passed location checks"
 
 		if(istype(C,/mob/living/carbon/human))
+			//world << "mob is human"
 			var/mob/living/carbon/human/H = C
-			H.apply_effect((rand(15,35)),IRRADIATE,0)
+			H.apply_effect((rand(15,35)),IRRADIATE,0,radtype)
+			//world << "radiation applied to [H]"
 			if(prob(5))
-				H.apply_effect((rand(40,70)),IRRADIATE,0)
+				H.apply_effect((rand(40,70)),IRRADIATE,0,radtype)
 				if (prob(75))
 					randmutb(H) // Applies bad mutation
 					domutcheck(H,null,MUTCHK_FORCED)
@@ -50,7 +59,7 @@
 					randmutg(H) // Applies good mutation
 					domutcheck(H,null,MUTCHK_FORCED)
 		else if(istype(C,/mob/living/carbon/monkey))
-			C.apply_effect((rand(5,25)),IRRADIATE,0)
+			C.apply_effect((rand(5,25)),IRRADIATE,0,radtype)
 
 /datum/event/radiation_storm/end()
 	revoke_maint_all_access()

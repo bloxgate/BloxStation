@@ -40,7 +40,7 @@
 
 
 
-/mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
+/mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0, var/radtype = "radiaton")
 	if(!effect || (blocked >= 2))	return 0
 	switch(effecttype)
 		if(STUN)
@@ -53,7 +53,18 @@
 			halloss += effect // Useful for objects that cause "subdual" damage. PAIN!
 		if(IRRADIATE)
 			var/rad_protection = getarmor(null, "rad")/100
-			radiation += max((1-rad_protection)*effect/(blocked+1),0)//Rads auto check armor
+			//radiation += max((1-rad_protection)*effect/(blocked+1),0)//Rads auto check armor
+			switch(radtype)
+				if("alpha")
+					alpharad += max((1-rad_protection)*effect/(blocked+1),0)
+				if("beta")
+					betarad += max((1-rad_protection)*effect/(blocked+1),0)
+				if("gamma")
+					gammarad += max((1-rad_protection)*effect/(blocked+1),0)
+				if("delta")
+					deltarad += max((1-rad_protection)*effect/(blocked+1),0)
+				else
+					radiation += max((1-rad_protection)*effect/(blocked+1),0)
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				stuttering = max(stuttering,(effect/(blocked+1)))

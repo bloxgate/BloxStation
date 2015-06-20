@@ -414,7 +414,7 @@
 				gammarad -= 3 * RADIATION_SPEED_COEFFICIENT
 			if(deltarad > 0)
 				deltarad -= 4 * RADIATION_SPEED_COEFFICIENT
-
+		updatehealth()
 		radcounter++
 
 			//more types to come soon
