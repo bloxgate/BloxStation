@@ -1259,6 +1259,29 @@ datum
 				..()
 				return
 
+		ionizine
+			name = "Ionizine"
+			id = "ionizine"
+			description = "Ionizine is a recently discovered medicine that is capable of removing radiation from the body, unlike previous medicines that merely prevented one from absorbing it."
+			reagent_state = LIQUID
+			color = "#87FFC5"
+			custom_metabolism = 0.05
+			overdose = 60
+
+			on_mob_life(var/mob/living/M as mob)
+				if(M.stat == 2.0)
+					return
+				if(!M) M = holder.my_atom
+				M.alpharad -= 10
+				M.betarad -= 5
+				M.gammarad -= 2.5
+				M.deltarad -= 2.5
+				M.nray -= 5
+				if(prob(5))
+					M.adjustCloneLoss(1)
+				..()
+				return
+
 		alkysine
 			name = "Alkysine"
 			id = "alkysine"

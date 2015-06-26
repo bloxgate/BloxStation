@@ -198,6 +198,13 @@ datum
 			required_reagents = list("hyronalin" = 1, "hydrogen" = 1)
 			result_amount = 2
 
+		ionizine
+			name = "Ionizine"
+			id = "ionizine"
+			result = "ionizine"
+			required_reagents = list("anti_toxin" = 1, "hyryonalin" = 1, "ryetalin" = 1)
+			result_amount = 3
+
 		impedrezene
 			name = "Impedrezene"
 			id = "impedrezene"
