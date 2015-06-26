@@ -403,6 +403,14 @@
 				if(organs.len)
 					var/datum/organ/external/O = pick(organs)
 					if(istype(O)) O.add_autopsy_data("Extreme Cellular Degredation", deltarad)
+			if(nray > 0)
+				adjustCloneLoss(nray)
+				nray = 2 ** nray
+				if(organs.len)
+					var/datum/organ/external/O = pick(organs)
+					if(istype(O)) O.add_autopsy_data("Neutron Radiation", nray)
+				for(var/mob/living/carbon/human/H in viewers(src, null))
+					H.apply_effect(nray, IRRADIATE, 0, "neutron")
 			if(radiation > 0)
 				gammarad += radiation
 				radiation = 0

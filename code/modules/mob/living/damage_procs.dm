@@ -63,6 +63,8 @@
 					gammarad += max((1-rad_protection)*effect/(blocked+1),0)
 				if("delta")
 					deltarad += max((1-rad_protection)*effect/(blocked+1),0)
+				if("neutron")
+					nray += max((1-rad_protection)*effect/(blocked+1),0)
 				else
 					radiation += max((1-rad_protection)*effect/(blocked+1),0)
 		if(STUTTER)
