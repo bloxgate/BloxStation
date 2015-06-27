@@ -1141,6 +1141,10 @@ area/space/atmosalert()
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
 
+/area/engineering/backup_engine
+	name = "\improper Backup Engines"
+	icon_state = "engine"
+
 
 
 //Solars
