@@ -1145,6 +1145,11 @@ area/space/atmosalert()
 	name = "\improper Backup Engines"
 	icon_state = "engine"
 
+/area/engineering/singularity_monitoring_airless
+	name = "\improper Singularity Engine Monitoring"
+	icon_state = "engine_monitoring"
+	no_air = 1
+
 
 
 //Solars
