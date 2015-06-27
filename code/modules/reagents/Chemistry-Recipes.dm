@@ -202,7 +202,7 @@ datum
 			name = "Ionizine"
 			id = "ionizine"
 			result = "ionizine"
-			required_reagents = list("anti_toxin" = 1, "hyryonalin" = 1, "ryetalin" = 1)
+			required_reagents = list("anti_toxin" = 1, "hyryonalin" = 1, "ryetalyn" = 1)
 			result_amount = 3
 
 		impedrezene
