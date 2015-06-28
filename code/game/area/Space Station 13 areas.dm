@@ -1150,6 +1150,18 @@ area/space/atmosalert()
 	icon_state = "engine_monitoring"
 	no_air = 1
 
+/area/engineering/rust_engine
+	name ="\improper R-UST Engine"
+	icon_state = "engine"
+
+/area/engineering/rust_engine_monitor
+	name = "\improper R-UST Engine Monitoring"
+	icon_state = "engine_monitoring"
+
+/area/engineering/rust_engine_injection
+	name = "\improper R-UST Engine Fuel Injection"
+	icon_state = "engine"
+
 
 
 //Solars

@@ -18,11 +18,19 @@
 			var/obj/machinery/rust/gyrotron/gyro = locate(href_list["target"])
 			gyro.Topic(href, href_list)
 			return
+		updateDialog()
 
 	process()
 		..()
 		if(updating)
 			src.updateDialog()
+
+	attack_hand(mob/user)
+		add_fingerprint(user)
+		interact(user)
+
+	attack_ai(mob/user)
+		attack_hand(user)
 
 	interact(mob/user)
 		if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )

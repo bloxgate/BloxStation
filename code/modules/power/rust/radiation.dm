@@ -9,6 +9,11 @@
 	process()
 		..()
 		//fade away over time
+		for(var/mob/living/carbon/H in viewers(src, null))
+			H.apply_effect(mega_energy, IRRADIATE)
+		for(var/obj/machinery/power/rad_collector/R in rad_collectors)
+			if(get_dist(R, src) <= 15) // Better than using orange() every process
+				R.receive_pulse(mega_energy)
 		if(source_alive > 0)
 			time_alive++
 			source_alive--
@@ -72,3 +77,55 @@
 /obj/machinery/computer/rust_radiation_monitor
 	name = "Radiation Monitor"
 	icon_state = "power"
+
+/obj/machinery/computer/rust_radiation_monitor/proc/energy_levels()
+	var/energy = 0
+	for(var/obj/effect/rust_em_field/R in range(25, src))
+		energy += R.mega_energy
+	return energy
+
+/obj/machinery/computer/rust_radiation_monitor/proc/rad_levels()
+	var/rads = 0
+	for(var/obj/machinery/rust/rad_source/R in range(25, src))
+		rads += R.mega_energy
+	return rads
+
+/obj/machinery/computer/rust_radiation_monitor/attack_ai(mob/user)
+	attack_hand(user)
+
+/obj/machinery/computer/rust_radiation_monitor/attack_hand(mob/user)
+	add_fingerprint(user)
+	interact(user)
+
+/obj/machinery/computer/rust_radiation_monitor/interact(mob/user)
+	if(stat & BROKEN)
+		user.unset_machine()
+		user << browse(null, "window=core_rads")
+		return
+	if (!istype(user, /mob/living/silicon) && (get_dist(src, user) > 1 ))
+		user.unset_machine()
+		user << browse(null, "window=core_rads")
+		return
+	var/dat = ""
+	if(stat & NOPOWER)
+		return
+	else
+		dat += "<B>Reactor Core Radiation Monitor</B><BR>"
+		dat += "Total Energy Level: <B>[energy_levels()]</B><BR>"
+		dat += "Detected Core Radioemissions: <B>[rad_levels()]</B> rads/second<BR>"
+		dat += "<hr>"
+		dat += "<a href='?src=\ref[src];refresh=1'>Refresh data?</a><BR>"
+		dat += "<a href='?src=\ref[src];close=1'>Close?</a><BR>"
+
+	user << browse(dat, "window=core_rads;size=500x400")
+	user.set_machine(src)
+
+/obj/machinery/computer/rust_radiation_monitor/Topic(href, href_list)
+	..()
+
+	if( href_list["refresh"] )
+		updateDialog()
+	if( href_list["close"] )
+		usr << browse(null, "window=core_rads")
+		usr.unset_machine()
+		updateDialog()
