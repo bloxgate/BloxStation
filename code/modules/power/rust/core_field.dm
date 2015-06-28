@@ -41,6 +41,7 @@ Deuterium-tritium fusion: 4.5 x 10^7 K
 		radiator = rad
 	if(!radiator)
 		radiator = new()
+		radiator.loc = src.loc
 
 	//make sure there's a field generator
 	for(var/obj/machinery/power/rust_core/core in loc)

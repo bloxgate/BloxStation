@@ -9,8 +9,8 @@
 	process()
 		..()
 		//fade away over time
-		for(var/mob/living/carbon/H in viewers(src, null))
-			H.apply_effect(mega_energy, IRRADIATE)
+		for(var/mob/living/carbon/C in range(15, src))
+			C.apply_effect(mega_energy, IRRADIATE)
 		for(var/obj/machinery/power/rad_collector/R in rad_collectors)
 			if(get_dist(R, src) <= 15) // Better than using orange() every process
 				R.receive_pulse(mega_energy)
