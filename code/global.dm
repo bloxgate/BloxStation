@@ -114,7 +114,7 @@ var/CELLRATE = 0.002 // Multiplier for watts per tick <> cell storage (e.g., 0.0
                      // It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
 var/CHARGELEVEL = 0.0005 // Cap for how fast cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 
-var/shuttle_z        = 2  // Default.
+var/shuttle_z        = 3  // Default.
 var/airtunnel_start  = 68 // Default.
 var/airtunnel_stop   = 68 // Default.
 var/airtunnel_bottom = 72 // Default.

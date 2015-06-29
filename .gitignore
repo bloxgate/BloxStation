@@ -9,3 +9,5 @@ data/
 icons/*/Thumbs.db
 html/*/Thumbs.db
 html/Thumbs.db
+#ignore atom build files
+.atom-build.json
