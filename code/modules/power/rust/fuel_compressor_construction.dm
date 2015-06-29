@@ -29,7 +29,7 @@
 	if (A.requires_power == 0 || A.name == "Space")
 		usr << "\red Compressor cannot be placed in this area."
 		return
-	new /obj/machinery/rust_fuel_assembly_port(loc, ndir, 1)
+	new /obj/machinery/rust_fuel_compressor(loc, ndir, 1)
 	del(src)
 
 //construction steps
@@ -149,7 +149,7 @@
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 		if(do_after(user, 50))
 			if(!src || !WT.remove_fuel(3, user)) return
-			new /obj/item/rust_fuel_assembly_port_frame(loc)
+			new /obj/item/rust_fuel_compressor_frame(loc)
 			user.visible_message(\
 				"\red [src] has been cut away from the wall by [user.name].",\
 				"You detached the compressor frame.",\

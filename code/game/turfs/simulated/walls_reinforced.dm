@@ -291,6 +291,16 @@
 		AH.try_build(src)
 		return
 
+	else if(istype(W,/obj/item/rust_fuel_compressor_frame))
+		var/obj/item/rust_fuel_compressor_frame/AH = W
+		AH.try_build(src)
+		return
+
+	else if(istype(W,/obj/item/rust_fuel_assembly_port_frame))
+		var/obj/item/rust_fuel_assembly_port_frame/AH = W
+		AH.try_build(src)
+		return
+
 	else if(istype(W, /obj/item/weapon/reagent_containers))
 		return // They tend to have meaningful afterattack - let them apply it without destroying a rotting wall
 
