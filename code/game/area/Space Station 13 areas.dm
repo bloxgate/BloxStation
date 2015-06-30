@@ -1162,7 +1162,9 @@ area/space/atmosalert()
 	name = "\improper R-UST Engine Fuel Injection"
 	icon_state = "engine"
 
-
+/area/engineering/rust_engine_teg
+	name ="\improper R-UST Engine Thermoelectric Generators"
+	icon_state = "engine"
 
 //Solars
 
