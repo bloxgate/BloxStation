@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/engines
 	name = "engine control console"
-	icon_state = "id"
+	icon_state = "engine1"
 	var/state = "status"
 	var/list/engines = list()
 	var/obj/effect/map/ship/linked
@@ -17,8 +17,11 @@
 		testing("Engines console at level [z] was unable to find a corresponding overmap object.")
 
 	for(var/datum/ship_engine/E in engines)
-		if (E.zlevel == z && !(E in engines))
+		if ((E.zlevel in linked.ship_levels) && !(E in engines))
 			engines += E
+
+	for(var/level in linked.ship_levels)
+		testing("Z-level [level] is connected to this engine controller.")
 
 /obj/machinery/computer/engines/attack_hand(var/mob/user as mob)
 	if(..())

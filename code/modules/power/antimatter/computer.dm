@@ -6,8 +6,8 @@
 
 /obj/machinery/computer/am_engine
 	name = "Antimatter Engine Console"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "comm_computer"
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "comm"
 	req_access = list(access_engine)
 	var/engine_id = 0
 	var/authenticated = 0

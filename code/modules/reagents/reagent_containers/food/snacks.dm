@@ -2984,6 +2984,24 @@
 	else
 		..()
 
+/obj/item/weapon/reagent_containers/food/snacks/grown/carrot
+	name = "carrot"
+	desc = "It's good for the eyes!"
+	icon_state = "carrot"
+	potency = 10
+	filling_color = "#FFC400"
+	plantname = "carrot"
+
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/soybeans
+	name = "soybeans"
+	desc = "It's pretty bland, but oh the possibilities..."
+	gender = PLURAL
+	filling_color = "#E6E8B7"
+	icon_state = "soybeans"
+	plantname = "soybean"
+
+
 /obj/item/weapon/reagent_containers/food/snacks/rawsticks
 	name = "raw potato sticks"
 	desc = "Raw fries, not very tasty."

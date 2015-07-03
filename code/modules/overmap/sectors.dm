@@ -11,9 +11,28 @@ var/global/list/map_sectors = list()
 	var/obj/effect/mapinfo/data
 	for(var/level in 1 to world.maxz)
 		data = locate("sector[level]")
-		if (data)
+		testing("Z-Level [level] is a sector")
+		if(istype(data, /obj/effect/mapinfo/ship))							//First we'll check for ships, because they can occupy multiplie levels
+			testing("Sector is a ship with tag [data.tag]!")
+			var/obj/effect/map/ship/found_ship = locate("ship_[data.shipname]")
+			if(found_ship)													//If there is a ship with such a name...
+				testing("Ship \"[data.shipname]\" found at [data.mapx],[data.mapy] corresponding to zlevel [level]")
+				found_ship.ship_levels += level								//Adding this z-level to the list of the ship's z-levels.
+				map_sectors["[level]"] = found_ship
+			else
+				found_ship = new data.obj_type(data)	//If there is no ship with such name, we will create one.
+				found_ship.ship_levels += level
+				map_sectors["[level]"] = found_ship
+				testing("Ship \"[data.shipname]\" created \"[data.name]\" at [data.mapx],[data.mapy] corresponding to zlevel [level]")
+		else if (data)
+			testing("Sector is a normal sector")
 			testing("Located sector \"[data.name]\" at [data.mapx],[data.mapy] corresponding to zlevel [level]")
 			map_sectors["[level]"] = new data.obj_type(data)
+
+	for(var/obj/effect/map/ship/S in world)
+		S.update_spaceturfs()
+
+
 	return 1
 
 //===================================================================================
@@ -31,11 +50,11 @@ var/global/list/map_sectors = list()
 	var/mapx			//coordinates on the
 	var/mapy			//overmap zlevel
 	var/known = 1
+	var/shipname = "Generic Sector"
 
 /obj/effect/mapinfo/New()
 	tag = "sector[z]"
 	zlevel = z
-	loc = null
 
 /obj/effect/mapinfo/sector
 	name = "generic sector"
@@ -44,7 +63,9 @@ var/global/list/map_sectors = list()
 /obj/effect/mapinfo/ship
 	name = "generic ship"
 	obj_type = /obj/effect/map/ship
-
+	var/ship_turfs
+	var/ship_levels
+	shipname = "Generic Space Vessel"
 
 //===================================================================================
 //Overmap object representing zlevel

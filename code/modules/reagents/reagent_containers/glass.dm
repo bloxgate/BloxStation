@@ -247,6 +247,15 @@
 		reagents.add_reagent("cryoxadone", 30)
 		update_icon()
 
+/obj/item/weapon/reagent_containers/glass/beaker/slime
+	name = "Slime Jelly Beaker"
+	desc = "A small beaker. Contains slime jelly."
+	flags = OPENCONTAINER
+	New()
+		..()
+		reagents.add_reagent("slimejelly", 60)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric
 	New()
 		..()

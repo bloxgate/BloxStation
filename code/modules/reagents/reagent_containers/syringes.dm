@@ -270,7 +270,7 @@
 		var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
 		src.reagents.trans_to(target, syringestab_amount_transferred)
 		src.break_syringe(target, user)
-		
+
 	proc/break_syringe(mob/living/carbon/target, mob/living/carbon/user)
 		src.desc += " It is broken."
 		src.mode = SYRINGE_BROKEN
@@ -440,6 +440,17 @@
 	New()
 		..()
 		reagents.add_reagent("chloralhydrate", 50)
+		mode = SYRINGE_INJECT
+		update_icon()
+
+/obj/item/weapon/reagent_containers/ld50_syringe/medical
+	name = "Extreme Sedatives"
+	desc = "Fast acting sedatives and painkillers. Long lasting."
+	New()
+		..()
+		reagents.add_reagent("chloralhydrate", 15)
+		reagents.add_reagent("tramadol", 25)
+		reagents.add_reagent("oxycodone", 10)
 		mode = SYRINGE_INJECT
 		update_icon()
 
