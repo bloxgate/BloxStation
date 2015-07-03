@@ -6,8 +6,6 @@
 *.lk
 *.backup
 data/
-icons/*/Thumbs.db
-html/*/Thumbs.db
-html/Thumbs.db
+*Thumbs.db
 #ignore atom build files
 .atom-build.json
