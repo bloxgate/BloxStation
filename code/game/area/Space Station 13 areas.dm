@@ -1264,16 +1264,14 @@ area/space/atmosalert()
 
 //Medbay is a large area, these additional areas help level out APC load.
 /area/medical/medbay2
-	name = "\improper Medbay Chemistry Stairs"
+	name = "\improper Medbay Hallway - Starboard"
 	icon_state = "medbay2"
 	music = 'sound/ambience/signal.ogg'
-	requires_power = 0
 
 /area/medical/medbay3
-	name = "\improper Medbay Chemistry Stairs Top"
+	name = "\improper Medbay Hallway - Fore"
 	icon_state = "medbay3"
 	music = 'sound/ambience/signal.ogg'
-	requires_power = 0
 
 /area/medical/medbay4
 	name = "\improper Medbay Hallway - Aft"
