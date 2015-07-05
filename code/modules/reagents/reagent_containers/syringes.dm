@@ -392,6 +392,8 @@
 		item_state = "syringe_[rounded_vol]"
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
@@ -454,6 +456,13 @@
 		mode = SYRINGE_INJECT
 		update_icon()
 
+/obj/item/weapon/reagent_containers/ld50_syringe/viro
+	name = "Healing Coma Syringe"
+	desc = "Rapidly puts a person in a coma and injects a large amount of spaceacillin."
+	New()
+		..()
+		reagents.add_reagent("chloralhydrate", 10)
+		reagents.add_reagent("spaceacillin", 40)
 
 //Robot syringes
 //Not special in any way, code wise. They don't have added variables or procs.

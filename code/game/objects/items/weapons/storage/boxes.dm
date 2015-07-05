@@ -591,3 +591,15 @@
 		new /obj/item/weapon/light/tube(src)
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
+
+/obj/item/weapon/storage/box/cold
+	name = "Cold Box"
+	desc = "Primarily used to transport organs, maintains a temperature of 73 kelvin via bluespace technology."
+
+/obj/item/weapon/storage/box/cold/return_air()
+	var/datum/gas_mixture/gas = (..())
+	if(!gas)	return null
+	var/datum/gas_mixture/newgas = new/datum/gas_mixture()
+	newgas.copy_from(gas)
+	newgas.temperature = 73
+	return newgas
