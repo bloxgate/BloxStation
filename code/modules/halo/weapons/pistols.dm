@@ -11,10 +11,3 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-
-/obj/item/weapon/gun/projectile/magnum/update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "magnum-loaded"
-	else
-		icon_state = "magnum-empty"
