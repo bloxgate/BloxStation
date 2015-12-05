@@ -34,7 +34,7 @@
 
 /obj/item/ammo_magazine/m739
 	name = "magazine (7.62x51mm)"
-	//TODO: sprites
+	mag_type = MAGAZINE
 	icon_state = "m739"
 	ammo_type = /obj/item/ammo_casing/halo/saw
 	matter = list(DEFAULT_WALL_MATERIAL = 525)
