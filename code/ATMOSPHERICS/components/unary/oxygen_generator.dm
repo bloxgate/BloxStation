@@ -6,8 +6,7 @@ obj/machinery/atmospherics/unary/oxygen_generator
 	name = "Oxygen Generator"
 	desc = ""
 
-	dir = SOUTH
-	initialize_directions = SOUTH
+	initialize_directions = dir
 
 	var/on = 0
 
