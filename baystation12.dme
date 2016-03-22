@@ -1518,6 +1518,7 @@
 #include "code\modules\overmap\overmap_vehicles\overmapobj.dm"
 #include "code\modules\overmap\overmap_vehicles\sensor.dm"
 #include "code\modules\overmap\overmap_vehicles\sensor_object.dm"
+#include "code\modules\overmap\overmap_vehicles\system_sensors.dm"
 #include "code\modules\overmap\overmap_vehicles\vehicle_controls.dm"
 #include "code\modules\overmap\overmap_vehicles\verbs.dm"
 #include "code\modules\overmap\overmap_vehicles\instances\longsword.dm"
