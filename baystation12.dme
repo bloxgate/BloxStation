@@ -1975,4 +1975,6 @@
 #include "maps\unsc_cruiser-3.dmm"
 #include "maps\unsc_cruiser-4.dmm"
 #include "maps\unsc_cruiser-5.dmm"
+#include "maps\ships\ore\areas.dm"
+#include "maps\ships\ore\ore_tanker_01.dmm"
 // END_INCLUDE

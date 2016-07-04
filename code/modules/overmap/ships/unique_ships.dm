@@ -26,3 +26,12 @@
 	init_bounds_dims = 96
 	sensor_icon_state = "7th_column"
 	//init_bounds_margin = 32
+
+/obj/effect/zlevelinfo/ship/orehauler
+    name = "CAA Mining Vessel 47"
+    desc = "Designed to carry large shipments of ore throught the system."
+    icon = 'code/modules/overmap/ships/frigate.dmi'
+    icon_state = "base"
+    faction = "UNSC"
+    init_bounds_dims = 64
+    use_me_to_initialise = 0
