@@ -1470,6 +1470,8 @@
 #include "code\modules\halo\flood\flood_spawn_proxy.dm"
 #include "code\modules\halo\flood\ghost_role.dm"
 #include "code\modules\halo\floorsigns\floorsigns.dm"
+#include "code\modules\halo\gamemodes\extraction\extraction_jobs.dm"
+#include "code\modules\halo\gamemodes\extraction\mode_extraction.dm"
 #include "code\modules\halo\insurrection\access_ids.dm"
 #include "code\modules\halo\insurrection\antagonist.dm"
 #include "code\modules\halo\insurrection\objectives.dm"
