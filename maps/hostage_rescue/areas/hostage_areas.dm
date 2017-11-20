@@ -52,3 +52,36 @@
 /area/hostage/cryo_pods
 	name = "cryo"
 	icon_state = "Sleep"
+
+// Create areas for use in the drop base
+/area/hostage/hrt_pod/infirmary/lobby
+	name = "infirmary_lobby"
+	icon_state = "medbay"
+
+/area/hostage/hrt_pod/infirmary/surgery1
+	name = "infirmary_or1"
+	icon_state = "medbay2"
+
+/area/hostage/hrt_pod/infirmary/surgery2
+	name = "infirmary_or2"
+	icon_state = "medbay3"
+
+/area/hostage/hrt_pod/infirmary/storage
+	name = "infirmary_storage"
+	icon_state = "medbay4"
+
+/area/hostage/hrt_pod/mess
+	name = "mess_hall"
+	icon_state = "cafeteria"
+
+/area/hostage/hrt_pod/armory
+	name = "hrt_armory"
+	icon_state = "armory"
+
+/area/hostage/hrt_pod/engine/lobby
+	name = "engine_room_lobby"
+	icon_state = "engineering_supply"
+
+/area/hostage/hrt_pod/lobby
+	name = "entry_area"
+	icon_state = "entry_1"
