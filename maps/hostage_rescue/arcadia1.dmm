@@ -433,7 +433,7 @@
 "iq" = (/obj/effect/floor_decal/ss13/l11,/turf/simulated/mineral,/area/space)
 "ir" = (/obj/effect/floor_decal/ss13/l13,/turf/simulated/mineral,/area/space)
 "is" = (/obj/effect/floor_decal/ss13/l15,/turf/simulated/mineral,/area/space)
-"it" = (/obj/effect/landmark/map_data{height = 2},/turf/simulated/mineral,/area/space)
+"it" = (/obj/effect/landmark/map_data{height = 2; name = "Arcadia Colony"},/turf/simulated/mineral,/area/space)
 "iu" = (/obj/effect/floor_decal/ss13/l2,/turf/simulated/mineral,/area/space)
 "iv" = (/obj/effect/floor_decal/ss13/l4,/turf/simulated/mineral,/area/space)
 "iw" = (/obj/effect/floor_decal/ss13/l6,/turf/simulated/mineral,/area/space)

@@ -15,12 +15,11 @@
 	var/list/hostages = list()
 	var/list/jobs = list("marine" = /datum/job/extraction/marine, "innie" = /datum/job/extraction/innie, "hostage" = /datum/job/extraction/hostage)
 
-	var/hostages_alive = 0
-	var/marines_alive = 0
-	var/innies_alive = 0
+/datum/game_mode/extraction/proc/manage_players()
+	marines = list()
+	innies = list()
+	hostages = list()
 
-/datum/game_mode/extraction/post_setup()
-	..()
 	for(var/mob/living/carbon/human/H in world)
 		if(H.mind.assigned_role == jobs["marine"])
 			marines += H
@@ -28,3 +27,47 @@
 			innies += H
 		else
 			hostages += H
+
+/datum/game_mode/extraction/post_setup()
+	..()
+	manage_players()
+
+/datum/game_mode/extraction/check_finished()
+	. = ..()
+	for(var/mob/living/carbon/human/H in marines)
+		if(H.stat != DEAD)
+			break
+		return 1
+	for(var/mob/living/carbon/human/H in innies)
+		if(H.stat != DEAD)
+			break
+		return 1
+	for(var/mob/living/carbon/human/H in hostages)
+		if(H.stat != DEAD)
+			break
+		return 1
+
+/datum/game_mode/extraction/check_win()
+	. = ..()
+	manage_players() //Update player lists as needed
+
+/datum/game_mode/extraction/declare_completion()
+	. = ..()
+	for(var/mob/living/carbon/human/H in hostages)
+		if(H.stat != DEAD)
+			break
+		to_world("<FONT size = 3><B>Stalemate</B></FONT>")
+		to_world("Hostages terminated")
+		feedback_set_details("round_end_result", "halfwin - hostages died")
+	for(var/mob/living/carbon/human/H in marines)
+		if(H.stat == DEAD)
+			break
+		to_world("<FONT size = 3><B>UNSC Major Victory!</B></FONT>")
+		to_world("<B>Insurrectionists Eliminated</B>")
+		feedback_set_details("round_end_result", "loss - unsc terminated insurrection")
+	for(var/mob/living/carbon/human/H in innies)
+		if(H.stat == DEAD)
+			break
+		to_world("<FONT size = 3><B>Insurrectionist Major Victory!</B></FONT>")
+		to_world("<B>UNSC Eliminated; Hostages Secured</B>")
+		feedback_set_details("round_end_result", "win - unsc eliminated - hostages survive")
